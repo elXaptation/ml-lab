@@ -1,0 +1,24 @@
+[elombera@ml-node01 ~]$ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda           8:0    0  59.6G  0 disk
+sdb           8:16   0  59.6G  0 disk
+sdc           8:32   0  59.6G  0 disk
+sdd           8:48   0  59.6G  0 disk
+sde           8:64   0  59.6G  0 disk
+sdf           8:80   0 111.8G  0 disk
+nvme0n1     259:0    0 465.8G  0 disk
+├─nvme0n1p1 259:1    0   300M  0 part
+└─nvme0n1p2 259:2    0 465.5G  0 part
+
+elombera@ml-node01 mnt]$ ls /dev/disk/by-id/
+ata-Dogfish_SSD_120GB_20ZYC12213779        nvme-eui.0025385b01444c40
+ata-DOGFISH_SSD_64GB_GV201022L000000074    nvme-eui.0025385b01444c40-part1
+ata-DOGFISH_SSD_64GB_GV201022L000000110    nvme-eui.0025385b01444c40-part2
+ata-DOGFISH_SSD_64GB_GV201022L000000112    nvme-Samsung_SSD_970_EVO_500GB_S5H7NS1NB39463D
+ata-DOGFISH_SSD_64GB_GV201022L000000118    nvme-Samsung_SSD_970_EVO_500GB_S5H7NS1NB39463D-part1
+ata-Dogfish_SSD_64GB_YSFB20D0101190002574  nvme-Samsung_SSD_970_EVO_500GB_S5H7NS1NB39463D-part2
+
+zpool create -f -o ashift=12 -m /mnt/data zdata ata-DOGFISH_SSD_64GB_GV201022L000000074 ata-DOGFISH_SSD_64GB_GV201022L000000110 ata-DOGFISH_SSD_64GB_GV201022L000000112 ata-DOGFISH_SSD_64GB_GV201022L000000118 ata-Dogfish_SSD_64GB_YSFB20D0101190002574
+
+zfs create <nameofzpool>/<nameofdataset>
+zfs create zdata/ds01

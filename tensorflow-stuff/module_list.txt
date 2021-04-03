@@ -1,0 +1,6 @@
+
+	Running CMD: docker run -it --rm -v /home/elombera/tensorflow-stuff:/tmp -w /tmp tensorflow/tensorflow python ./dkr-test-01.py
+
+2021-02-28 12:12:36.197488: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2021-02-28 12:12:36.197544: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<module 'tensorflow.keras.datasets.mnist' from '/usr/local/lib/python3.6/dist-packages/tensorflow/keras/datasets/mnist/__init__.py'>

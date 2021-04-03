@@ -1,0 +1,4 @@
+Command to use:
+   ZPOOL_VDEV_NAME_PATH=1 grub-mkconfig -o /boot/grub/grub.cfg
+
+# Use when you want to modify grub.cfg and you get the error "can not resolve canonical name of boot device" or something.
